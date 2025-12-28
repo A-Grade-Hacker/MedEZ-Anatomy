@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | MedEz Anatomy Explorer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">MedEz Anatomy Explorer</a>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="quizzes.html">Quizzes</a>
+        <a href="model3d.html">3D Model</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>
+          Have feedback, questions, or suggestions? We’d be glad to hear from you.
+        </p>
+      </div>
+    </section>
+
+    <section class="container contact-layout">
+      <div class="contact-panel">
+        <h2>Send us a message</h2>
+        <p>
+          Share your ideas, report an issue, or let us know how MedEz Anatomy Explorer can better support your learning.
+        </p>
+
+        <form id="contact-form" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+
+        <div id="contact-response" class="contact-response" aria-live="polite"></div>
+      </div>
+
+      <aside class="contact-aside">
+        <h3>How we use your feedback</h3>
+        <p>
+          Your input directly shapes new features, content refinements, and overall usability improvements. We review
+          each message carefully and respond when appropriate.
+        </p>
+        <p>
+          While we cannot provide medical advice, we welcome suggestions related to educational content, clarity, and
+          user experience.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 MedEz Anatomy Explorer. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
