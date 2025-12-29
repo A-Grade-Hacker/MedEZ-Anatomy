@@ -108,20 +108,20 @@
       </div>
     </section>
   </main>
-  <!-- Coming Soon Modal -->
-<div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="cs-backdrop" data-cs-close="true"></div>
+ <!-- Permanent Coming Soon Modal (non-dismissible) -->
+<div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
+  <div class="cs-backdrop"></div>
   <div class="cs-panel" role="document" aria-labelledby="cs-title">
-    <button class="cs-close" aria-label="Close" data-cs-close="true">&times;</button>
     <header class="cs-header">
       <h2 id="cs-title">Coming Soon</h2>
     </header>
     <div class="cs-body">
-      <p>We're working on this feature. Check back soon.</p>
+      <p>We're building this feature. It will be available soon.</p>
+      <p style="margin-top:0.6rem; color:var(--text-muted); font-size:0.95rem;">
+        For now, please explore other sections of the site.
+      </p>
     </div>
-    <footer class="cs-footer">
-      <button class="btn btn-primary" id="cs-ok">Got it</button>
-    </footer>
+    <!-- Intentionally no close button and no action buttons -->
   </div>
 </div>
 
