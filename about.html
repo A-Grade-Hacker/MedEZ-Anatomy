@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About | MedEz Anatomy Explorer</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
@@ -14,7 +14,7 @@
       <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="about.html" class="active">About</a>
-        <a href="quizzes.html" >Quizzes</a>
+        <a href="quizzes.html" class="js-trigger-quizzes">Quizzes</a>
         <a href="model3d.html">3D Model</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -22,60 +22,25 @@
   </header>
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>About MedEz Anatomy Explorer</h1>
-      </div>
-    </section>
-
     <section class="container about-layout">
-      <article class="about-content">
-        <section class="about-section">
-          <h2>Our Mission</h2>
-          <p>
-            MedEz Anatomy Explorer is built to deliver clear, reliable anatomical education for students,
-            clinicians, and lifelong learners. We focus on accuracy, relevance, and clarity so that every concept
-            you study can be meaningfully applied in academic and clinical settings.
-          </p>
-          <p>
-            Instead of overwhelming detail, we prioritize essential relationships, clinical context, and a learning
-            experience that respects your time and attention.
-          </p>
-        </section>
+      <div class="about-content card">
+        <h2 class="h2">About MedEz</h2>
+        <p class="lead">MedEz Anatomy Explorer is designed to make anatomy approachable and memorable. We combine concise lessons, visual aids, and interactive tools to support learners at every level.</p>
 
-        <div class="divider"></div>
+        <div class="about-section">
+          <h3 class="h2">Our approach</h3>
+          <p>We focus on high-yield concepts, clear visuals, and active recall. Content is organized by system and clinical relevance so you can study efficiently.</p>
+        </div>
 
-        <section class="about-section">
-          <h2>Practical Learning</h2>
-          <p>
-            Our tools bridge theory and practice through interactive quizzes, structured content, and 3D anatomy
-            models. You can validate your understanding as you go, making every session more active and engaging.
-          </p>
-          <p>
-            Whether you're preparing for exams, clinical rotations, or foundational coursework, MedEz Anatomy Explorer
-            supports meaningful retention and real‑world application.
-          </p>
-        </section>
+        <div class="about-section">
+          <h3 class="h2">Who we are</h3>
+          <p>Created by educators and clinicians who care about practical learning. We iterate based on learner feedback and aim to keep content concise and accurate.</p>
+        </div>
 
-        <div class="divider"></div>
-
-        <section class="about-section">
-          <h2>Continuous Improvement</h2>
-          <p>
-            We refine our content and features based on evolving guidelines in medical education and feedback from
-            learners. Our goal is to remain a stable, trusted companion throughout your training.
-          </p>
-          <p>
-            As the platform grows, we aim to expand system coverage, add more interactive tools, and continue improving
-            clarity and usability.
-          </p>
-        </section>
-
-        <p class="signature">
-          Warm regards,<br />
-          <strong>The MedEz Anatomy Explorer Team</strong>
-        </p>
-      </article>
+        <div class="signature">
+          <p>— The MedEz Team</p>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -84,5 +49,26 @@
       <p>&copy; 2025 MedEz Anatomy Explorer. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Coming Soon Modal (shared) -->
+  <div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
+    <div class="cs-backdrop"></div>
+    <div class="cs-panel" role="document" aria-labelledby="cs-title">
+      <header class="cs-header">
+        <h2 id="cs-title">Coming Soon</h2>
+      </header>
+      <div class="cs-body">
+        <p>We're building this feature. It will be available soon.</p>
+        <p style="margin-top:.6rem; color:var(--muted); font-size:.95rem;">
+          For now, please explore other sections of the site.
+        </p>
+      </div>
+
+      <footer class="cs-footer">
+        <button id="cs-ok" class="btn btn-outline" type="button">OK</button>
+        <button id="cs-home" class="btn btn-primary" type="button">Go Home</button>
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
