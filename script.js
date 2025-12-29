@@ -1,12 +1,13 @@
 /**
- * script.js — corrected
+ * script.js — corrected and robust
  *
  * - Contact form handling (client-side feedback)
  * - 3D model selection (iframe loader)
- * - Coming Soon modal behavior (fixed handlers)
- *   - Home page: OK dismisses modal; if admin and clicking quizzes link, OK navigates
- *   - Quizzes page: non-admin sees Go Home; admin sees OK to dismiss and view
- * - Heavy blur applied on quizzes page while modal open
+ * - Coming Soon modal behavior:
+ *    - Hero Test button (class js-trigger-test) -> OK only (dismiss)
+ *    - Nav Quizzes link (class js-trigger-quizzes) -> Go Home only (redirect)
+ *    - Quizzes page: heavy blur while modal open; non-admin sees Go Home; admin sees OK
+ * - Admin access: Ctrl+Shift+A prompt or window.__setAdmin(password)
  *
  * Load with: <script defer src="script.js"></script>
  */
@@ -51,7 +52,6 @@
   function isQuizzesHref(href) {
     if (!href) return false;
     try {
-      // strip query/hash and leading ./ or /
       const clean = href.split('?')[0].split('#')[0].replace(/^\.\//, '').replace(/^\//, '').toLowerCase();
       return clean === 'quizzes.html' || clean === 'quizzes';
     } catch {
@@ -61,9 +61,7 @@
 
   // DOM ready
   document.addEventListener('DOMContentLoaded', () => {
-    /* ============================
-       Contact form handling
-       ============================ */
+    /* Contact form handling */
     const contactForm = document.getElementById('contact-form');
     const contactResponse = document.getElementById('contact-response');
 
@@ -88,9 +86,7 @@
       });
     }
 
-    /* ============================
-       3D model selection (if present)
-       ============================ */
+    /* 3D model selection (if present) */
     const frame = document.getElementById('biodigital-frame');
     const placeholder = document.getElementById('model-placeholder');
 
@@ -109,54 +105,50 @@
       });
     });
 
-    /* ============================
-       Coming Soon modal (fixed)
-       ============================ */
+    /* Coming Soon modal */
     const modal = document.getElementById('coming-soon-modal');
-    if (!modal) return; // nothing to do if modal not present
+    if (!modal) return;
 
     const okBtn = document.getElementById('cs-ok');
     const homeBtn = document.getElementById('cs-home');
 
-    // pendingNavigation: { href: string } when clicking quizzes link from index and admin allowed
+    // pendingNavigation: { href } when admin clicked quizzes link from index
     let pendingNavigation = null;
 
     // Determine if current page is quizzes.html
     const currentPage = window.location.pathname.split('/').pop().toLowerCase();
     const onQuizzesPage = currentPage === 'quizzes.html' || currentPage === 'quizzes';
 
-    function openModalForTrigger(href) {
+    function openModalForTrigger(options = {}) {
+      // options: { href, triggerType } where triggerType can be 'test' or 'nav'
       const userIsAdmin = isAdmin();
-
-      // Reset pending navigation
       pendingNavigation = null;
 
-      // If on quizzes page:
+      // Decide which buttons to show
+      // Priority: explicit triggerType, then href detection, then page context
+      const triggerType = options.triggerType || (options.href && isQuizzesHref(options.href) ? 'nav' : 'test');
+
       if (onQuizzesPage) {
         if (userIsAdmin) {
-          // Admin can view: show OK only
           showButtons({ ok: true, home: false });
           pendingNavigation = { allowView: true };
         } else {
-          // Non-admin: show Go Home only
           showButtons({ ok: false, home: true });
           pendingNavigation = { goHome: true };
         }
       } else {
-        // Not on quizzes page (e.g., index)
-        // If the trigger was a quizzes link:
-        if (href && isQuizzesHref(href)) {
+        // Not on quizzes page
+        if (triggerType === 'nav') {
           if (userIsAdmin) {
-            // Admin clicking quizzes link: OK will navigate
             showButtons({ ok: true, home: false });
-            pendingNavigation = { href: href };
+            pendingNavigation = { href: options.href || 'quizzes.html' };
           } else {
-            // Non-admin clicking quizzes link from index: show OK only (dismiss)
+            // Non-admin clicking nav from index: show OK only (dismiss)
             showButtons({ ok: true, home: false });
             pendingNavigation = null;
           }
         } else {
-          // Other triggers: show OK only
+          // test trigger: OK only, dismiss
           showButtons({ ok: true, home: false });
           pendingNavigation = null;
         }
@@ -211,23 +203,34 @@
 
     // Attach handlers to triggers
     function attachTriggerHandlers() {
-      // explicit triggers
-      document.querySelectorAll('.js-coming-soon').forEach(el => {
+      // explicit test trigger (hero)
+      document.querySelectorAll('.js-trigger-test').forEach(el => {
         el.addEventListener('click', (ev) => {
           ev.preventDefault();
           const href = el.getAttribute('href') || null;
-          openModalForTrigger(href);
+          openModalForTrigger({ href, triggerType: 'test' });
         });
       });
 
-      // fallback: anchors linking to quizzes.html
+      // explicit quizzes nav trigger
+      document.querySelectorAll('.js-trigger-quizzes').forEach(el => {
+        el.addEventListener('click', (ev) => {
+          ev.preventDefault();
+          const href = el.getAttribute('href') || 'quizzes.html';
+          openModalForTrigger({ href, triggerType: 'nav' });
+        });
+      });
+
+      // fallback: any anchor linking to quizzes.html (if classes not present)
       document.querySelectorAll('a[href]').forEach(a => {
         try {
           const href = a.getAttribute('href') || '';
           if (isQuizzesHref(href)) {
+            // avoid double-binding if class already used
+            if (a.classList.contains('js-trigger-quizzes')) return;
             a.addEventListener('click', (ev) => {
               ev.preventDefault();
-              openModalForTrigger(href);
+              openModalForTrigger({ href, triggerType: 'nav' });
             });
           }
         } catch (err) {
@@ -239,23 +242,22 @@
     // OK button behavior
     if (okBtn) {
       okBtn.addEventListener('click', () => {
-        // If pendingNavigation.href exists (admin clicked quizzes link from index), navigate
         if (pendingNavigation && pendingNavigation.href) {
+          // admin allowed to navigate to quizzes
           closeModal();
-          // small delay to ensure modal closed visually before navigation
           setTimeout(() => {
             window.location.href = pendingNavigation.href;
           }, 120);
           return;
         }
 
-        // If on quizzes page and admin allowed to view, just close modal
+        // admin on quizzes page: allow viewing (close)
         if (pendingNavigation && pendingNavigation.allowView) {
           closeModal();
           return;
         }
 
-        // Default: close modal (home page OK)
+        // default: close modal (hero OK)
         closeModal();
       });
     }
@@ -264,7 +266,6 @@
     if (homeBtn) {
       homeBtn.addEventListener('click', () => {
         closeModal();
-        // redirect to home
         window.location.href = 'index.html';
       });
     }
