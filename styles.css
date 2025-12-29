@@ -415,7 +415,7 @@ main {
 }
 
 /* ====================================
-   Permanent Coming Soon Modal (non-dismissible)
+   Permanent Coming Soon Modal (with OK and Go Home)
 ==================================== */
 .cs-modal {
   position: fixed;
@@ -445,7 +445,7 @@ main {
   border-radius: 12px;
   border: 1px solid var(--border);
   box-shadow: 0 30px 60px rgba(10, 20, 40, 0.22);
-  padding: 1.5rem;
+  padding: 1.25rem;
   width: 100%;
   max-width: 640px;
   margin: 1rem;
@@ -463,6 +463,19 @@ main {
   color: var(--text-muted);
   line-height: 1.6;
   margin: 0;
+}
+
+.cs-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+/* Buttons inside modal */
+.cs-footer .btn {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.95rem;
 }
 
 /* Prevent pointer events leaking to page behind modal */
