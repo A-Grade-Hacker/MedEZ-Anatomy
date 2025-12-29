@@ -415,7 +415,7 @@ main {
 }
 
 /* ====================================
-   Permanent Coming Soon Modal (with OK and Go Home)
+   Coming Soon Modal (shared) + heavy blur
 ==================================== */
 .cs-modal {
   position: fixed;
@@ -472,7 +472,6 @@ main {
   margin-top: 1rem;
 }
 
-/* Buttons inside modal */
 .cs-footer .btn {
   padding: 0.5rem 0.9rem;
   font-size: 0.95rem;
@@ -482,6 +481,25 @@ main {
 body.modal-open {
   overflow: hidden;
   touch-action: none;
+}
+
+/* Heavy blur class for quizzes page background while modal open */
+.heavy-blur main,
+.heavy-blur .page-hero,
+.heavy-blur .container {
+  filter: blur(6px) saturate(0.95);
+  transition: filter 180ms ease;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Slightly dim the page behind modal on quizzes page */
+.heavy-blur::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.08);
+  z-index: 998;
 }
 
 /* Small screens */
