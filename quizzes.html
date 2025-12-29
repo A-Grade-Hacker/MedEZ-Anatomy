@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Quizzes | MedEz Anatomy Explorer</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
@@ -14,7 +14,7 @@
       <nav class="navbar">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="quizzes.html" class="js-trigger-quizzes">Quizzes</a>
+        <a href="quizzes.html" class="active js-trigger-quizzes">Quizzes</a>
         <a href="model3d.html">3D Model</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -24,105 +24,56 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <h1>Anatomy System Quizzes</h1>
-        <p>
-          Choose a body system to test and refine your knowledge with focused question sets.
-        </p>
+        <h1 class="h1">Anatomy System Quizzes</h1>
+        <p class="lead">Choose a system to test and refine your knowledge with focused question sets.</p>
       </div>
     </section>
 
     <section class="container quizzes-layout">
       <header class="section-header">
-        <h2>Select a system to begin</h2>
-        <p>These quizzes reinforce structure, function, and clinically relevant relationships.</p>
+        <h2 class="h2">Select a system to begin</h2>
+        <p class="lead">These quizzes reinforce structure, function, and clinically relevant relationships.</p>
       </header>
 
-      <div class="systems-grid">
-        <button class="system-card" data-system="skeletal">
-          <h3>Skeletal</h3>
-          <p>Supports, protects, and provides a framework for movement.</p>
-        </button>
-
-        <button class="system-card" data-system="muscular">
-          <h3>Muscular</h3>
-          <p>Generates movement and maintains posture through contraction.</p>
-        </button>
-
-        <button class="system-card" data-system="cardiovascular">
-          <h3>Cardiovascular</h3>
-          <p>Circulates blood to deliver oxygen and nutrients.</p>
-        </button>
-
-        <button class="system-card" data-system="digestive">
-          <h3>Digestive</h3>
-          <p>Processes food and absorbs nutrients essential for function.</p>
-        </button>
-
-        <button class="system-card" data-system="endocrine">
-          <h3>Endocrine</h3>
-          <p>Regulates body processes through hormones.</p>
-        </button>
-
-        <button class="system-card" data-system="nervous">
-          <h3>Nervous</h3>
-          <p>Coordinates rapid signaling and responses throughout the body.</p>
-        </button>
-
-        <button class="system-card" data-system="respiratory">
-          <h3>Respiratory</h3>
-          <p>Manages gas exchange and oxygen delivery.</p>
-        </button>
-
-        <button class="system-card" data-system="immune">
-          <h3>Immune / Lymphatic</h3>
-          <p>Defends against pathogens and maintains fluid balance.</p>
-        </button>
-
-        <button class="system-card" data-system="urinary">
-          <h3>Urinary</h3>
-          <p>Filters blood and regulates fluid and electrolyte balance.</p>
-        </button>
-
-        <button class="system-card" data-system="reproductive">
-          <h3>Reproductive</h3>
-          <p>Supports reproduction and associated hormonal function.</p>
-        </button>
-
-        <button class="system-card" data-system="integumentary">
-          <h3>Integumentary</h3>
-          <p>Protects the body and regulates interactions with the environment.</p>
-        </button>
+      <div class="systems-grid grid">
+        <button class="card system-card" data-system="skeletal">Skeletal</button>
+        <button class="card system-card" data-system="muscular">Muscular</button>
+        <button class="card system-card" data-system="cardiovascular">Cardiovascular</button>
+        <button class="card system-card" data-system="digestive">Digestive</button>
+        <button class="card system-card" data-system="endocrine">Endocrine</button>
+        <button class="card system-card" data-system="nervous">Nervous</button>
+        <button class="card system-card" data-system="respiratory">Respiratory</button>
+        <button class="card system-card" data-system="immune">Immune / Lymphatic</button>
+        <button class="card system-card" data-system="urinary">Urinary</button>
       </div>
     </section>
   </main>
-
-  <!-- Coming Soon Modal (shared) -->
-<div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
-  <div class="cs-backdrop"></div>
-  <div class="cs-panel" role="document" aria-labelledby="cs-title">
-    <header class="cs-header">
-      <h2 id="cs-title">Coming Soon</h2>
-    </header>
-    <div class="cs-body">
-      <p>We're building this feature. It will be available soon.</p>
-      <p style="margin-top:0.6rem; color:var(--text-muted); font-size:0.95rem;">
-        For now, please explore other sections of the site.
-      </p>
-    </div>
-
-    <footer class="cs-footer">
-      <button id="cs-ok" class="btn btn-outline" type="button">OK</button>
-      <button id="cs-home" class="btn btn-primary" type="button">Go Home</button>
-    </footer>
-  </div>
-</div>
-
-
 
   <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 MedEz Anatomy Explorer. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Coming Soon Modal (shared) -->
+  <div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
+    <div class="cs-backdrop"></div>
+    <div class="cs-panel" role="document" aria-labelledby="cs-title">
+      <header class="cs-header">
+        <h2 id="cs-title">Coming Soon</h2>
+      </header>
+      <div class="cs-body">
+        <p>We're building this feature. It will be available soon.</p>
+        <p style="margin-top:.6rem; color:var(--muted); font-size:.95rem;">
+          For now, please explore other sections of the site.
+        </p>
+      </div>
+
+      <footer class="cs-footer">
+        <button id="cs-ok" class="btn btn-outline" type="button">OK</button>
+        <button id="cs-home" class="btn btn-primary" type="button">Go Home</button>
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
