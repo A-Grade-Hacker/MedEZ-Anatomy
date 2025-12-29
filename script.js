@@ -143,9 +143,9 @@
             showButtons({ ok: true, home: false });
             pendingNavigation = { href: options.href || 'quizzes.html' };
           } else {
-            // Non-admin clicking nav from index: show OK only (dismiss)
-            showButtons({ ok: true, home: false });
-            pendingNavigation = null;
+            // Non-admin clicking nav from index: show Go Home only (explicit nav behavior)
+            showButtons({ ok: false, home: true });
+            pendingNavigation = { goHome: true };
           }
         } else {
           // test trigger: OK only, dismiss
