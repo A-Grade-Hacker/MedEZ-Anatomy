@@ -414,9 +414,7 @@ main {
   border-color: var(--primary);
 }
 
-/* ====================================
-   Coming Soon Modal (shared) + heavy blur
-==================================== */
+/* Coming Soon Modal (shared) + heavy blur */
 .cs-modal {
   position: fixed;
   inset: 0;
@@ -493,7 +491,7 @@ body.modal-open {
   user-select: none;
 }
 
-/* Slightly dim the page behind modal on quizzes page */
+/* Slight dim overlay behind modal on quizzes page */
 .heavy-blur::before {
   content: "";
   position: fixed;
