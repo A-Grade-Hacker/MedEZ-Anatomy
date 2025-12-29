@@ -1,9 +1,11 @@
 /**
- * script.js (cleaned)
+ * script.js (merged & cleaned)
  *
  * - Contact form handling (client-side feedback)
  * - 3D model selection (iframe loader)
- * - Permanent "Coming Soon" modal (non-dismissible) that opens for .js-coming-soon and quizzes.html links
+ * - Permanent "Coming Soon" modal (non-dismissible by backdrop/Escape)
+ *   - OK button closes modal and returns user to the page
+ *   - Go Home button redirects to index.html
  *
  * Load with: <script defer src="script.js"></script>
  */
@@ -64,13 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ============================
-     Permanent Coming Soon modal (non-dismissible)
-     - Opens for elements with .js-coming-soon and anchors linking to quizzes.html
-     - No close button, Escape and backdrop clicks are ignored
+     Permanent Coming Soon modal (non-dismissible by backdrop/Escape)
+     - OK closes modal (reveals page)
+     - Go Home redirects to index.html
+     - Opens for .js-coming-soon and anchors linking to quizzes.html
      ============================ */
   (function initPermanentComingSoon() {
     const modal = document.getElementById('coming-soon-modal');
     if (!modal) return;
+
+    const okBtn = document.getElementById('cs-ok');
+    const homeBtn = document.getElementById('cs-home');
 
     function openModalPermanent() {
       modal.setAttribute('aria-hidden', 'false');
@@ -78,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('modal-open');
 
       // Focus the panel for accessibility
-      const panel = modal.querySelector('.cs-panel') || modal.querySelector('.cs-body') || modal;
+      const panel = modal.querySelector('.cs-panel') || modal;
       if (panel) {
         panel.setAttribute('tabindex', '-1');
         panel.focus();
@@ -87,6 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
       // Block Escape key and absorb clicks while modal is open
       document.addEventListener('keydown', blockEscape, true);
       modal.addEventListener('click', absorbClicks, true);
+    }
+
+    function closeModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      modal.classList.remove('open');
+      document.body.classList.remove('modal-open');
+      document.removeEventListener('keydown', blockEscape, true);
+      modal.removeEventListener('click', absorbClicks, true);
     }
 
     function blockEscape(e) {
@@ -101,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
     }
 
+    // Attach handlers to triggers
     function attachHandlers() {
       // explicit triggers
       document.querySelectorAll('.js-coming-soon').forEach(el => {
@@ -126,7 +141,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // OK button: close modal and return to page (useful on index)
+    okBtn && okBtn.addEventListener('click', () => {
+      closeModal();
+    });
+
+    // Go Home button: redirect to index.html
+    homeBtn && homeBtn.addEventListener('click', () => {
+      // Close modal first to avoid visual flash on some browsers
+      closeModal();
+      // Redirect to home
+      window.location.href = 'index.html';
+    });
+
     attachHandlers();
+
+    // Developer/admin programmatic close (optional). Remove if you want absolutely no override.
+    // To close during testing: run window.__comingSoonAdminClose() in the console.
+    window.__comingSoonAdminClose = function () {
+      closeModal();
+    };
   })();
 
   /* ============================
