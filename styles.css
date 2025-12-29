@@ -413,82 +413,67 @@ main {
   transform: translateY(-2px);
   border-color: var(--primary);
 }
+
 /* ====================================
-   Modal: Coming Soon
+   Permanent Coming Soon Modal (non-dismissible)
 ==================================== */
-.modal {
+.cs-modal {
   position: fixed;
   inset: 0;
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 60;
+  z-index: 9999;
+  pointer-events: auto;
 }
 
-.modal.open {
+.cs-modal.open {
   display: flex;
 }
 
-.modal-backdrop {
+.cs-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(18, 24, 33, 0.45);
+  background: rgba(18, 24, 33, 0.65);
   backdrop-filter: blur(2px);
+  pointer-events: auto;
 }
 
-.modal-panel {
+.cs-panel {
   position: relative;
   background: var(--surface);
   border-radius: 12px;
   border: 1px solid var(--border);
-  box-shadow: 0 30px 60px rgba(10, 20, 40, 0.18);
-  padding: 1.25rem;
+  box-shadow: 0 30px 60px rgba(10, 20, 40, 0.22);
+  padding: 1.5rem;
   width: 100%;
-  max-width: 520px;
+  max-width: 640px;
   margin: 1rem;
   z-index: 2;
+  pointer-events: auto;
 }
 
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  font-size: 1.4rem;
-  color: var(--text-muted);
-  cursor: pointer;
-}
-
-.modal-header h2 {
+.cs-header h2 {
   margin: 0 0 0.5rem 0;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: var(--text-main);
 }
 
-.modal-body p {
+.cs-body p {
   color: var(--text-muted);
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
-.modal-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
+/* Prevent pointer events leaking to page behind modal */
+body.modal-open {
+  overflow: hidden;
+  touch-action: none;
 }
 
 /* Small screens */
 @media (max-width: 480px) {
-  .modal-panel {
-    padding: 1rem;
-    max-width: 92%;
-  }
-
-  .modal-close {
-    top: 8px;
-    right: 8px;
-  }
+  .cs-panel { padding: 1rem; max-width: 92%; }
 }
 
 /* ====================================
