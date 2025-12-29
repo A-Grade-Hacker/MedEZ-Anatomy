@@ -96,22 +96,26 @@
     </section>
   </main>
 
-  <!-- Coming Soon Modal -->
-  <div id="coming-soon-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal-backdrop" data-close="true"></div>
-    <div class="modal-panel" role="document">
-      <button class="modal-close" aria-label="Close" data-close="true">&times;</button>
-      <header class="modal-header">
-        <h2 id="modal-title">Quizzes Coming Soon</h2>
-      </header>
-      <div class="modal-body">
-        <p>We're building focused, clinically relevant quizzes to help you learn and retain anatomy. Check back soon — this feature is coming shortly.</p>
-      </div>
-      <footer class="modal-footer">
-        <button class="btn btn-primary" id="modal-ok">Got it</button>
-      </footer>
+  <!-- Permanent Coming Soon Modal (with OK and Go Home) -->
+<div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
+  <div class="cs-backdrop"></div>
+  <div class="cs-panel" role="document" aria-labelledby="cs-title">
+    <header class="cs-header">
+      <h2 id="cs-title">Coming Soon</h2>
+    </header>
+    <div class="cs-body">
+      <p>We're building this feature. It will be available soon.</p>
+      <p style="margin-top:0.6rem; color:var(--text-muted); font-size:0.95rem;">
+        For now, please explore other sections of the site.
+      </p>
     </div>
+
+    <footer class="cs-footer">
+      <button id="cs-ok" class="btn btn-outline">OK</button>
+      <button id="cs-home" class="btn btn-primary">Go Home</button>
+    </footer>
   </div>
+</div>
 
   <footer class="site-footer">
     <div class="container">
