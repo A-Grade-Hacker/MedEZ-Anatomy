@@ -3,84 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact | MedEz Anatomy Explorer</title>
+  <title>Contact — MedEz Anatomy</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">MedEz Anatomy Explorer</a>
-      <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="quizzes.html" class="js-trigger-quizzes">Quizzes</a>
-        <a href="model3d.html">3D Model</a>
-        <a href="contact.html" class="active">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-box">MedEz</span> Anatomy
+    </a>
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1 class="h1">Contact Us</h1>
-        <p class="lead">Have feedback, questions, or suggestions? We’d be glad to hear from you.</p>
-      </div>
-    </section>
+    <nav class="navbar">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="quizzes.html">Quizzes</a>
+      <a class="nav-link" href="model3d.html">3D Model</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <section class="container contact-layout">
-      <div class="contact-panel card">
-        <h2 class="h2">Send us a message</h2>
-        <form id="contact-form" novalidate>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required />
+<main>
+  <section class="container" style="padding:2.5rem 0;">
+    <h1 class="section-title">Contact</h1>
 
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
+    <div class="contact-grid">
+      <form class="card">
+        <div style="margin-bottom:.75rem;">
+          <label for="name">Name</label><br>
+          <input id="name" type="text" name="name" />
+        </div>
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
+        <div style="margin-bottom:.75rem;">
+          <label for="email">Email</label><br>
+          <input id="email" type="email" name="email" />
+        </div>
 
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
+        <div style="margin-bottom:.75rem;">
+          <label for="message">Message</label><br>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
 
-        <div id="contact-response" class="contact-response" aria-live="polite" style="margin-top:.6rem"></div>
-      </div>
+        <button type="submit" class="btn btn-primary" data-ripple>Send</button>
+      </form>
 
-      <aside class="contact-aside card">
-        <h3 class="h2">How we use your feedback</h3>
-        <p class="lead">Your input shapes new features and content. We review each message and respond when appropriate.</p>
-        <p style="margin-top:.8rem"><a href="admin.html" class="btn btn-outline">View Stored Messages (Admin)</a></p>
-      </aside>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 MedEz Anatomy Explorer. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Coming Soon Modal (shared) -->
-  <div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
-    <div class="cs-backdrop"></div>
-    <div class="cs-panel" role="document" aria-labelledby="cs-title">
-      <header class="cs-header">
-        <h2 id="cs-title">Coming Soon</h2>
-      </header>
-      <div class="cs-body">
-        <p>We're building this feature. It will be available soon.</p>
-        <p style="margin-top:.6rem; color:var(--muted); font-size:.95rem;">
-          For now, please explore other sections of the site.
+      <div class="card">
+        <h3>Feedback and collaboration</h3>
+        <p class="muted">
+          MedEz Anatomy will continue to grow with feedback from learners and educators.
+          If you have suggestions, notice an error, or would like to collaborate, we would be glad to hear from you.
         </p>
       </div>
-
-      <footer class="cs-footer">
-        <button id="cs-ok" class="btn btn-outline" type="button">OK</button>
-        <button id="cs-home" class="btn btn-primary" type="button">Go Home</button>
-      </footer>
     </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2025 MedEz Anatomy
   </div>
+</footer>
+
 </body>
 </html>

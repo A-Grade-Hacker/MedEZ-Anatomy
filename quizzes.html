@@ -3,77 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Quizzes | MedEz Anatomy Explorer</title>
+  <title>Quizzes — MedEz Anatomy</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">MedEz Anatomy Explorer</a>
-      <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="quizzes.html" class="active js-trigger-quizzes">Quizzes</a>
-        <a href="model3d.html">3D Model</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-box">MedEz</span> Anatomy
+    </a>
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1 class="h1">Anatomy System Quizzes</h1>
-        <p class="lead">Choose a system to test and refine your knowledge with focused question sets.</p>
-      </div>
-    </section>
-
-    <section class="container quizzes-layout">
-      <header class="section-header">
-        <h2 class="h2">Select a system to begin</h2>
-        <p class="lead">These quizzes reinforce structure, function, and clinically relevant relationships.</p>
-      </header>
-
-      <div class="systems-grid grid">
-        <button class="card system-card" data-system="skeletal">Skeletal</button>
-        <button class="card system-card" data-system="muscular">Muscular</button>
-        <button class="card system-card" data-system="cardiovascular">Cardiovascular</button>
-        <button class="card system-card" data-system="digestive">Digestive</button>
-        <button class="card system-card" data-system="endocrine">Endocrine</button>
-        <button class="card system-card" data-system="nervous">Nervous</button>
-        <button class="card system-card" data-system="respiratory">Respiratory</button>
-        <button class="card system-card" data-system="immune">Immune / Lymphatic</button>
-        <button class="card system-card" data-system="urinary">Urinary</button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 MedEz Anatomy Explorer. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Coming Soon Modal (shared) -->
-  <div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
-    <div class="cs-backdrop"></div>
-    <div class="cs-panel" role="document" aria-labelledby="cs-title">
-      <header class="cs-header">
-        <h2 id="cs-title">Coming Soon</h2>
-      </header>
-      <div class="cs-body">
-        <p>We're building this feature. It will be available soon.</p>
-        <p style="margin-top:.6rem; color:var(--muted); font-size:.95rem;">
-          For now, please explore other sections of the site.
-        </p>
-      </div>
-
-      <footer class="cs-footer">
-        <button id="cs-ok" class="btn btn-outline" type="button">OK</button>
-        <button id="cs-home" class="btn btn-primary" type="button">Go Home</button>
-      </footer>
-    </div>
+    <nav class="navbar">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="quizzes.html">Quizzes</a>
+      <a class="nav-link" href="model3d.html">3D Model</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
   </div>
+</header>
+
+<div id="quiz-overlay"></div>
+
+<div id="quiz-modal">
+  <div class="quiz-modal-content">
+    <h2>Something exciting is coming!</h2>
+    <p>We're building a brand‑new quiz experience to help you learn smarter. Stay tuned — it's on the way.</p>
+    <a href="index.html" class="btn btn-primary" data-ripple>Go Home</a>
+  </div>
+</div>
+
+<main>
+  <section class="container" style="padding:2.5rem 0;">
+    <h1 class="section-title">Practice: System Quizzes</h1>
+
+    <div class="card" style="margin-bottom:1rem;">
+      <h3>Skeletal system</h3>
+      <p class="muted">Which bone forms the forehead?</p>
+      <ul class="muted">
+        <li>Parietal</li>
+        <li>Temporal</li>
+        <li><strong>Frontal</strong></li>
+        <li>Occipital</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Muscular system</h3>
+      <p class="muted">Primary elbow flexor?</p>
+      <ul class="muted">
+        <li><strong>Biceps brachii</strong></li>
+        <li>Triceps brachii</li>
+        <li>Brachioradialis</li>
+        <li>Pronator teres</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2025 MedEz Anatomy
+  </div>
+</footer>
+
 </body>
 </html>

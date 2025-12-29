@@ -3,72 +3,94 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About | MedEz Anatomy Explorer</title>
+  <title>About — MedEz Anatomy</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">MedEz Anatomy Explorer</a>
-      <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="quizzes.html" class="js-trigger-quizzes">Quizzes</a>
-        <a href="model3d.html">3D Model</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-box">MedEz</span> Anatomy
+    </a>
 
-  <main>
-    <section class="container about-layout">
-      <div class="about-content card">
-        <h2 class="h2">About MedEz</h2>
-        <p class="lead">MedEz Anatomy Explorer is designed to make anatomy approachable and memorable. We combine concise lessons, visual aids, and interactive tools to support learners at every level.</p>
-
-        <div class="about-section">
-          <h3 class="h2">Our approach</h3>
-          <p>We focus on high-yield concepts, clear visuals, and active recall. Content is organized by system and clinical relevance so you can study efficiently.</p>
-        </div>
-
-        <div class="about-section">
-          <h3 class="h2">Who we are</h3>
-          <p>Created by educators and clinicians who care about practical learning. We iterate based on learner feedback and aim to keep content concise and accurate.</p>
-        </div>
-
-        <div class="signature">
-          <p>— The MedEz Team</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 MedEz Anatomy Explorer. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Coming Soon Modal (shared) -->
-  <div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
-    <div class="cs-backdrop"></div>
-    <div class="cs-panel" role="document" aria-labelledby="cs-title">
-      <header class="cs-header">
-        <h2 id="cs-title">Coming Soon</h2>
-      </header>
-      <div class="cs-body">
-        <p>We're building this feature. It will be available soon.</p>
-        <p style="margin-top:.6rem; color:var(--muted); font-size:.95rem;">
-          For now, please explore other sections of the site.
-        </p>
-      </div>
-
-      <footer class="cs-footer">
-        <button id="cs-ok" class="btn btn-outline" type="button">OK</button>
-        <button id="cs-home" class="btn btn-primary" type="button">Go Home</button>
-      </footer>
-    </div>
+    <nav class="navbar">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="quizzes.html">Quizzes</a>
+      <a class="nav-link" href="model3d.html">3D Model</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
   </div>
+</header>
+
+<main>
+
+  <!-- ABOUT HERO -->
+  <section class="hero-section about-hero">
+    <div class="container">
+      <h1 class="hero-title">About MedEz Anatomy</h1>
+      <p class="hero-subtitle">
+        MedEz Anatomy was created to make anatomy study more focused, less overwhelming, and genuinely useful for clinical training.
+      </p>
+    </div>
+  </section>
+
+  <!-- NARRATIVE CARD -->
+  <section class="about-body">
+    <div class="container">
+      <article class="card about-card">
+        <p class="muted">
+          Anatomy is foundational to medicine, but the way it is often learned can feel fragmented, rushed, or overly dense.
+          MedEz Anatomy exists to offer an alternative: a space where structure, clarity, and thoughtful design work together
+          to make complex material feel manageable and meaningful.
+        </p>
+
+        <p class="muted">
+          The platform is built around a simple idea — when information is presented cleanly, with clear objectives and deliberate
+          visual support, learners can spend their energy understanding rather than sorting through noise. Each module is designed
+          to highlight what truly matters: core relationships, spatial orientation, and the patterns that underpin clinical reasoning.
+        </p>
+
+        <p class="muted">
+          Rather than trying to do everything at once, MedEz Anatomy focuses on depth over breadth. You are guided through concise
+          objectives, visual summaries, and targeted practice items that reinforce recall without sacrificing nuance. The goal is not
+          to replace textbooks or lectures, but to provide a structured companion that helps you integrate what you already know and
+          see how it fits together.
+        </p>
+
+        <p class="muted">
+          Visual design is not treated as decoration here — it is part of the pedagogy. Layout, spacing, and typography are chosen to
+          reduce cognitive load, highlight hierarchy, and keep your attention on what matters most. Interactive elements and 3D models
+          are introduced thoughtfully, not as gimmicks, but as tools to support true spatial understanding.
+        </p>
+
+        <p class="muted">
+          MedEz Anatomy will continue to evolve with feedback from learners and educators. As new systems, modules, and interactive
+          tools are added, the focus will remain the same: clarity, trust, and an experience that respects both your time and your goals.
+        </p>
+
+        <p class="muted">
+          Whether you are encountering anatomy for the first time or revisiting key concepts in preparation for exams or clinical work,
+          we hope this platform gives you a sense of structure, confidence, and calm in the middle of a demanding process.
+        </p>
+
+        <p class="muted about-signoff">
+          With warm regards,<br>
+          <strong>The MedEz Anatomy Team</strong>
+        </p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2025 MedEz Anatomy
+  </div>
+</footer>
+
 </body>
 </html>

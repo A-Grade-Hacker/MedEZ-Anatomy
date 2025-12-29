@@ -1,69 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>3D Anatomy Model | MedEz Anatomy Explorer</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>3D Model — MedEz Anatomy</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">MedEz Anatomy Explorer</a>
-      <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="quizzes.html" class="js-trigger-quizzes">Quizzes</a>
-        <a href="model3d.html" class="active">3D Model</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-box">MedEz</span> Anatomy
+    </a>
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <h1>Explore 3D Anatomy</h1>
-        <p>
-          Choose a model and inspect anatomical structures from multiple angles in a clinically oriented view.
-        </p>
+    <nav class="navbar">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="quizzes.html">Quizzes</a>
+      <a class="nav-link" href="model3d.html">3D Model</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="container" style="padding:2.75rem 0;">
+    <h1 class="section-title">3D Anatomy Models</h1>
+
+    <!-- SEGMENTED TOGGLE -->
+    <div class="model-toggle card">
+      <div class="toggle-group">
+        <button class="toggle-btn active" data-model="male">Male</button>
+        <button class="toggle-btn" data-model="female">Female</button>
       </div>
-    </section>
-
-    <section class="container model-layout">
-      <aside class="model-sidebar">
-        <button class="model-card" data-model="male">
-          <h2>Male Model</h2>
-          <p>Explore full-body male anatomy in 3D.</p>
-        </button>
-
-        <button class="model-card" data-model="female">
-          <h2>Female Model</h2>
-          <p>Explore full-body female anatomy in 3D.</p>
-        </button>
-      </aside>
-
-      <section class="model-viewer">
-        <div class="model-placeholder" id="model-placeholder">
-          <p>Select a model to load the 3D viewer.</p>
-        </div>
-
-        <iframe
-          id="biodigital-frame"
-          src=""
-          title="3D Anatomy Model"
-          loading="lazy"
-          frameborder="0"
-        ></iframe>
-      </section>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 MedEz Anatomy Explorer. All rights reserved.</p>
     </div>
-  </footer>
+
+    <!-- EMBED WINDOW -->
+      <div class="model-embed card">
+        <button id="resetViewBtn" class="reset-btn">Reset View</button>
+      
+        <iframe 
+          id="modelFrame"
+          src="https://sketchfab.com/models/7w7pAfr2F/embed"
+          frameborder="0"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2025 MedEz Anatomy
+  </div>
+</footer>
+
 </body>
 </html>
