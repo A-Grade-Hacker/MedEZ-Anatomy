@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MedEz Anatomy Explorer</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MedEz Anatomy Explorer — Home</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
@@ -12,9 +12,9 @@
     <div class="container header-inner">
       <a href="index.html" class="logo">MedEz Anatomy Explorer</a>
       <nav class="navbar">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="quizzes.html">Quizzes</a>
+        <a href="quizzes.html" class="js-trigger-quizzes">Quizzes</a>
         <a href="model3d.html">3D Model</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -22,117 +22,75 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero page-hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <h1>Explore Human Anatomy with Clarity and Confidence</h1>
-          <p>
-            MedEz Anatomy Explorer helps you visualize, understand, and retain complex anatomical concepts through
-            structured tools, 3D models, and interactive learning.
-          </p>
+          <h1 class="h1">Explore anatomy with clarity</h1>
+          <p class="lead">Interactive content, focused quizzes, and 3D models to help you learn faster.</p>
           <div class="hero-actions">
-            <a href="model3d.html" class="btn btn-primary">Explore 3D Models</a>
             <a href="quizzes.html" class="btn btn-outline js-trigger-test">Test Your Knowledge</a>
+            <a href="model3d.html" class="btn btn-primary">View 3D Models</a>
           </div>
         </div>
-        <div class="hero-illustration" aria-hidden="true">
-          <div class="organ-line heart-outline"></div>
-          <div class="organ-line brain-outline"></div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Learning Highlights Section (NEW) -->
-    <section class="learning-highlights">
-      <div class="container">
-        <header class="section-header">
-          <h2>Learning Highlights</h2>
-          <p>Clear, clinically focused tools designed to support your anatomy learning.</p>
-        </header>
-
-        <div class="highlights-grid">
-          <div class="highlight-card">
-            <h3>Clear Anatomy Visuals</h3>
-            <p>
-              Explore structures with intuitive diagrams and interactive 3D models that make complex anatomy easier to understand.
-            </p>
-          </div>
-
-          <div class="highlight-card">
-            <h3>Clinically Relevant Explanations</h3>
-            <p>
-              Learn how anatomical relationships connect to real‑world medical practice, improving retention and application.
-            </p>
-          </div>
-
-          <div class="highlight-card">
-            <h3>Guided Learning Path</h3>
-            <p>
-              Move through body systems in a structured, digestible sequence that supports long‑term mastery.
-            </p>
-          </div>
+        <div class="hero-illustration">
+          <!-- decorative illustration placeholder -->
+          <div class="organ-line heart-outline" aria-hidden="true"></div>
+          <div class="organ-line brain-outline" aria-hidden="true"></div>
         </div>
       </div>
     </section>
 
-    <!-- Main Feature Cards -->
-    <section class="feature-section">
-      <div class="container">
-        <header class="section-header">
-          <h2>What would you like to explore?</h2>
-          <p>Select a section to dive deeper into anatomy learning.</p>
-        </header>
-        <div class="feature-grid">
-          <a class="feature-card" href="about.html">
-            <div class="feature-icon"></div>
-            <h3>About</h3>
-            <p>Learn about our mission and how MedEz Anatomy Explorer supports your learning journey.</p>
-          </a>
-          <a class="feature-card" href="quizzes.html">
-            <div class="feature-icon"></div>
-            <h3>Quizzes</h3>
-            <p>Assess and reinforce your understanding with system-based anatomy quizzes.</p>
-          </a>
-          <a class="feature-card" href="model3d.html">
-            <div class="feature-icon"></div>
-            <h3>3D Models</h3>
-            <p>Explore interactive 3D anatomy models to visualize structures in a clinical context.</p>
-          </a>
-          <a class="feature-card" href="contact.html">
-            <div class="feature-icon"></div>
-            <h3>Contact</h3>
-            <p>Share feedback, ask questions, or request support from our team.</p>
-          </a>
+    <section class="container learning-highlights">
+      <div class="section-header">
+        <h2 class="h2">What you'll find</h2>
+        <p class="lead">Concise lessons, visual aids, and practice to reinforce learning.</p>
+      </div>
+
+      <div class="highlights-grid grid">
+        <div class="card highlight-card">
+          <h3>Structured lessons</h3>
+          <p class="lead">Short, focused modules that build on each other.</p>
+        </div>
+
+        <div class="card highlight-card">
+          <h3>3D models</h3>
+          <p class="lead">Explore anatomy from multiple angles with interactive viewers.</p>
+        </div>
+
+        <div class="card highlight-card">
+          <h3>Practice quizzes</h3>
+          <p class="lead">Test recall and reinforce clinically relevant relationships.</p>
         </div>
       </div>
     </section>
   </main>
-<!-- Coming Soon Modal (shared) -->
-<div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
-  <div class="cs-backdrop"></div>
-  <div class="cs-panel" role="document" aria-labelledby="cs-title">
-    <header class="cs-header">
-      <h2 id="cs-title">Coming Soon</h2>
-    </header>
-    <div class="cs-body">
-      <p>We're building this feature. It will be available soon.</p>
-      <p style="margin-top:0.6rem; color:var(--text-muted); font-size:0.95rem;">
-        For now, please explore other sections of the site.
-      </p>
-    </div>
-
-    <footer class="cs-footer">
-      <button id="cs-ok" class="btn btn-outline" type="button">OK</button>
-      <button id="cs-home" class="btn btn-primary" type="button">Go Home</button>
-    </footer>
-  </div>
-</div>
 
   <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 MedEz Anatomy Explorer. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Coming Soon Modal (shared) -->
+  <div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
+    <div class="cs-backdrop"></div>
+    <div class="cs-panel" role="document" aria-labelledby="cs-title">
+      <header class="cs-header">
+        <h2 id="cs-title">Coming Soon!</h2>
+      </header>
+      <div class="cs-body">
+        <p>We're building this feature. It will be available soon.</p>
+        <p style="margin-top:.6rem; color:var(--muted); font-size:.95rem;">
+          For now, please explore other sections of the site.
+        </p>
+      </div>
+
+      <footer class="cs-footer">
+        <button id="cs-ok" class="btn btn-outline" type="button">OK</button>
+        <button id="cs-home" class="btn btn-primary" type="button">Go Home</button>
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
