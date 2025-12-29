@@ -108,7 +108,7 @@
       </div>
     </section>
   </main>
-<!-- Permanent Coming Soon Modal (with OK and Go Home) -->
+<!-- Coming Soon Modal (shared) -->
 <div id="coming-soon-modal" class="cs-modal" role="dialog" aria-modal="true" aria-labelledby="cs-title" aria-hidden="true">
   <div class="cs-backdrop"></div>
   <div class="cs-panel" role="document" aria-labelledby="cs-title">
@@ -123,11 +123,13 @@
     </div>
 
     <footer class="cs-footer">
-      <button id="cs-ok" class="btn btn-outline">OK</button>
-      <button id="cs-home" class="btn btn-primary">Go Home</button>
+      <!-- Both buttons exist but script will show/hide depending on page and admin status -->
+      <button id="cs-ok" class="btn btn-outline" type="button">OK</button>
+      <button id="cs-home" class="btn btn-primary" type="button">Go Home</button>
     </footer>
   </div>
 </div>
+
   <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 MedEz Anatomy Explorer. All rights reserved.</p>
